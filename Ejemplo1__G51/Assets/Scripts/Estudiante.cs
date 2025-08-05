@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PackagePersona
 {
-    [SerializeField]
+    [Serializable]
 public class Estudiante : Persona
     {
         private string codeE;

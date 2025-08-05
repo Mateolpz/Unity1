@@ -5,12 +5,12 @@ using System;
 
 namespace PackagePersona 
 {
-    [SerializeField]
+    [Serializable]
     public class Persona
     {
-    private string nameP;
-    private string mail;
-    private string dirP;
+        private string nameP;
+        private string mail;
+        private string dirP;
 
         public Persona()
         {
