@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PackagePersona;
+using Package2D;
+using System.IO;
 
 
 public class UsarPersona : MonoBehaviour
 {
     List<Estudiante> listaE = new List<Estudiante>();
+    private List<Vector2> listarEstudiantes;
 
     // Start is called before the first frame update
     public void Start()
@@ -24,6 +27,9 @@ public class UsarPersona : MonoBehaviour
         {
             Debug.Log(listaE[i].NameP + " " + listaE[i].Carrera);
         }
+
+        Utilidades util = gameObject.AddComponent<Utilidades>();
+        util.GuardarEstudianteJson(listaE);
     }
 
     // Update is called once per frame
@@ -31,4 +37,5 @@ public class UsarPersona : MonoBehaviour
     {
         
     }
+     
 }

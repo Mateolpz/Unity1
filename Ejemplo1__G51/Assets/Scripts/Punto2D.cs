@@ -8,20 +8,22 @@ namespace Package2D
 
     [Serializable]
 
-    public class Punto2D : MonoBehaviour
+    public class Puntos2D 
     {
+        
         private double X;
         private double Y;
 
-        public Punto2D()
+
+        public Puntos2D()
         {
 
         }
 
-        public Punto2D(double x, double y)
+        public Puntos2D(double x, double y)
         {
-            X1 = x;
-            Y1 = y;
+            X = x;
+            Y = y;
         }
 
         public double X1 { get => X; set => X = value; }
