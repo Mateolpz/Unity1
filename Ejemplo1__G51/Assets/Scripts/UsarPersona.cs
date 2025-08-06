@@ -29,7 +29,7 @@ public class UsarPersona : MonoBehaviour
         }
 
         Utilidades util = gameObject.AddComponent<Utilidades>();
-        util.GuardarEstudianteJson(listaE);
+        util.GuardarEstudianteJson(listaE); // Correcto
     }
 
     // Update is called once per frame

@@ -10,9 +10,9 @@ namespace Package2D
 
     public class Puntos2D 
     {
-        
-        private double X;
-        private double Y;
+
+        [SerializeField] private double X;
+        [SerializeField] private double Y;
 
 
         public Puntos2D()

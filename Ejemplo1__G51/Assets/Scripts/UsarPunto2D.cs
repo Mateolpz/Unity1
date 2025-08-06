@@ -5,28 +5,26 @@ using UnityEngine;
 
 public class UsarPunto2D : MonoBehaviour
 {
-    List<Vector2> listarPuntos = new List<Vector2>();
+    List<Vector2> listaPuntos = new List<Vector2>();
     // Start is called before the first frame update
     void Start()
     {
-        listarPuntos.Add(new Vector2(1.5f, 3.2f));
+        listaPuntos.Add(new Vector2(1.5f, 3.2f));
 
-        listarPuntos.Add(new Vector2(4.0f, -2.1f));
+        listaPuntos.Add(new Vector2(4.0f, -2.1f));
 
-        listarPuntos.Add(new Vector2(0f, 0f));
+        listaPuntos.Add(new Vector2(0f, 0f));
 
-        listarPuntos.Add(new Vector2(-5f, 6f));
+        listaPuntos.Add(new Vector2(-5f, 6f));
             
 
 
-        foreach (Vector2 punto in listarPuntos)
+        foreach (Vector2 punto in listaPuntos)
         {
             Debug.Log("Punto" + punto);
         }
 
-
         Utilidades util = gameObject.AddComponent<Utilidades>();
-        util.GuardarPuntosJson(listarPuntos);
-
+        util.GuardarPuntosJson(listaPuntos);
     }
 }
