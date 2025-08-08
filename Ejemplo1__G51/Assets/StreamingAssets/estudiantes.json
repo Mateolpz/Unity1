@@ -1,0 +1,11 @@
+{
+    "estudiantes": [
+        {
+            "nameP": "Mateo",
+            "mail": "mateo@",
+            "dirP": "crra1",
+            "codeE": "202555",
+            "nameCarrera": "Ing Multimedia"
+        }
+    ]
+}

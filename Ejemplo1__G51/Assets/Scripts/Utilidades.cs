@@ -1,30 +1,35 @@
+using Package2D;
 using PackagePersona;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.Analytics;
-using System.IO;
-using Package2D;
-using UnityEditor.ShaderKeywordFilter;
-using System;
+using UnityEngine.Purchasing.MiniJSON;
 
 
 public class Utilidades : MonoBehaviour
 {
-    public void GuardarEstudianteJson(List<Estudiante> listaEstudiante)
+    public static bool GuardarEstudianteJson(List<Estudiante> listaEstudiante)
     {
-        string ruta = Path.Combine(Application.persistentDataPath, "estudiantes.json");
-        string json = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaEstudiante }, true);
-        File.WriteAllText(ruta, json);
-        Debug.Log("Archivo estudiantes guardado en:" + ruta);
+        bool resultado= false;
+        string ruta = Path.Combine(Application.streamingAssetsPath, "estudiantes.json");
+        string JsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaEstudiante }, true);
+        File.WriteAllText(ruta, JsonString);
+        Debug.Log("Lista:" + JsonString);
+        return resultado;
     }
 
-    public void GuardarPuntosJson(List<Vector2> listaPuntos)
+    public static bool GuardarPuntosJson(List<Vector2> listaPuntos)
     {
-        string ruta = Path.Combine(Application.persistentDataPath, "puntos2D.json");
-        string json = JsonUtility.ToJson(new Puntos2DListWrapper { puntos = listaPuntos }, true);
-        File.WriteAllText(ruta, json);
-        Debug.Log("Archivo de puntos 2D guarado en:" + ruta);
+        bool resultado= false;
+        string ruta = Path.Combine(Application.streamingAssetsPath, "puntos2D.json");
+        string JsonString = JsonUtility.ToJson(new Puntos2DListWrapper { puntos = listaPuntos }, true);
+        File.WriteAllText(ruta, JsonString);
+        Debug.Log("Lista Puntos:" + JsonString);
+        return resultado;
 
     }
 
