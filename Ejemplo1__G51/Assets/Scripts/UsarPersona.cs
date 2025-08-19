@@ -99,7 +99,8 @@ public class UsarPersona : MonoBehaviour
         }
 
         // Guardar listas separadas
-        Utilidades.SaveSeparatedStudents(listaE);
+        Utilidades.SaveOtrasCarreras(listaE);
+        Utilidades.SaveIngenieria(listaE);
 
     }
 

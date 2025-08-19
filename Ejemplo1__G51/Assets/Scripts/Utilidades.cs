@@ -64,41 +64,64 @@ public class Utilidades : MonoBehaviour
         }
     }
 
-    public static bool SaveSeparatedStudents(List<Estudiante> listaE)
+    public static bool SaveOtrasCarreras(List<Estudiante> listaE)
     {
         try
         {
-            List<Estudiante> listaIng = new List<Estudiante>();
             List<Estudiante> listaOtros = new List<Estudiante>();
 
-            foreach (Estudiante e in listaE)
+            foreach (var e in listaE)
             {
-                if (e.Carrera.ToLower().Contains("ingeniería"))
-                    listaIng.Add(e);
-                else
+                string carrera = (e.Carrera ?? "").ToLower().Trim().Replace("í", "i");
+                if (!carrera.Contains("ingenieria"))
                     listaOtros.Add(e);
             }
 
             string folderPath = Application.streamingAssetsPath;
-
-            // Crear carpeta si no existe
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            // Rutas de archivos
-            string rutaIng = Path.Combine(folderPath, "ingenieria.json");
-            string rutaOtros = Path.Combine(folderPath, "otros.json");
+            string filePath = Path.Combine(folderPath, "otras.json");
+            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaOtros }, true);
+            File.WriteAllText(filePath, jsonString);
 
-            // Guardar como JSON
-            File.WriteAllText(rutaIng, JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaIng }, true));
-            File.WriteAllText(rutaOtros, JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaOtros }, true));
-
-            Debug.Log("Listas separadas guardadas en JSON");
+            Debug.Log("Archivo JSON de otras carreras guardado en: " + filePath);
             return true;
         }
         catch (System.Exception ex)
         {
-            Debug.LogError("Error al guardar listas separadas: " + ex.Message);
+            Debug.LogError("Error al guardar otras.json: " + ex.Message);
+            return false;
+        }
+    }
+
+    public static bool SaveIngenieria(List<Estudiante> listaE)
+    {
+        try
+        {
+            List<Estudiante> listaIng = new List<Estudiante>();
+
+            foreach (var e in listaE)
+            {
+                string carrera = (e.Carrera ?? "").ToLower().Trim().Replace("í", "i");
+                if (carrera.Contains("ingenieria"))
+                    listaIng.Add(e);
+            }
+
+            string folderPath = Application.streamingAssetsPath;
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            string filePath = Path.Combine(folderPath, "ingenieria.json");
+            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaIng }, true);
+            File.WriteAllText(filePath, jsonString);
+
+            Debug.Log("Archivo JSON de ingeniería guardado en: " + filePath);
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error al guardar ingenieria.json: " + ex.Message);
             return false;
         }
     }
