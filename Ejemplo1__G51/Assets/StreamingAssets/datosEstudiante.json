@@ -1,0 +1,144 @@
+{
+    "estudiantes": [
+        {
+            "nameP": "David Castro",
+            "mail": "dacastro@uao.edu.co",
+            "dirP": "calle45",
+            "codeE": "21478",
+            "nameCarrera": "Ingenieria Multimedia"
+        },
+        {
+            "nameP": "Laura Gómez",
+            "mail": "lgomez@uao.edu.co",
+            "dirP": "carrera12#34-56",
+            "codeE": "21479",
+            "nameCarrera": "Ingenieria Industrial"
+        },
+        {
+            "nameP": "Carlos Pérez",
+            "mail": "cperez@uao.edu.co",
+            "dirP": "avenida3#45-67",
+            "codeE": "21480",
+            "nameCarrera": "Administración de Empresas"
+        },
+        {
+            "nameP": "María Fernández",
+            "mail": "mfernandez@uao.edu.co",
+            "dirP": "calle10#23-45",
+            "codeE": "21481",
+            "nameCarrera": "Ingenieria Multimedia"
+        },
+        {
+            "nameP": "Juan Rodríguez",
+            "mail": "jrodriguez@uao.edu.co",
+            "dirP": "carrera8#12-34",
+            "codeE": "21482",
+            "nameCarrera": "Diseño Gráfico"
+        },
+        {
+            "nameP": "Ana Martínez",
+            "mail": "amartinez@uao.edu.co",
+            "dirP": "calle20#45-67",
+            "codeE": "21483",
+            "nameCarrera": "Ingenieria Civil"
+        },
+        {
+            "nameP": "Pedro López",
+            "mail": "plopez@uao.edu.co",
+            "dirP": "avenida5#67-89",
+            "codeE": "21484",
+            "nameCarrera": "Ingenieria de Sistemas"
+        },
+        {
+            "nameP": "Sofía Torres",
+            "mail": "storres@uao.edu.co",
+            "dirP": "calle15#56-78",
+            "codeE": "21485",
+            "nameCarrera": "Contaduría Pública"
+        },
+        {
+            "nameP": "Luis Ramírez",
+            "mail": "lramirez@uao.edu.co",
+            "dirP": "carrera9#12-34",
+            "codeE": "21486",
+            "nameCarrera": "Ingenieria Multimedia"
+        },
+        {
+            "nameP": "Camila Herrera",
+            "mail": "cherrera@uao.edu.co",
+            "dirP": "calle22#45-67",
+            "codeE": "21487",
+            "nameCarrera": "Comunicación Social"
+        },
+        {
+            "nameP": "Andrés Vargas",
+            "mail": "avargas@uao.edu.co",
+            "dirP": "avenida6#78-90",
+            "codeE": "21488",
+            "nameCarrera": "Ingenieria Industrial"
+        },
+        {
+            "nameP": "Paula Ríos",
+            "mail": "prios@uao.edu.co",
+            "dirP": "carrera14#23-45",
+            "codeE": "21489",
+            "nameCarrera": "Psicología"
+        },
+        {
+            "nameP": "Felipe Mendoza",
+            "mail": "fmendoza@uao.edu.co",
+            "dirP": "calle33#45-67",
+            "codeE": "21490",
+            "nameCarrera": "Ingenieria Mecánica"
+        },
+        {
+            "nameP": "Valentina Silva",
+            "mail": "vsilva@uao.edu.co",
+            "dirP": "avenida7#56-78",
+            "codeE": "21491",
+            "nameCarrera": "Ingenieria Multimedia"
+        },
+        {
+            "nameP": "Diego Morales",
+            "mail": "dmorales@uao.edu.co",
+            "dirP": "calle40#67-89",
+            "codeE": "21492",
+            "nameCarrera": "Ingenieria Civil"
+        },
+        {
+            "nameP": "Carolina Castaño",
+            "mail": "ccastano@uao.edu.co",
+            "dirP": "carrera15#12-34",
+            "codeE": "21493",
+            "nameCarrera": "Derecho"
+        },
+        {
+            "nameP": "Esteban Arias",
+            "mail": "earias@uao.edu.co",
+            "dirP": "avenida8#23-45",
+            "codeE": "21494",
+            "nameCarrera": "Ingenieria Electrónica"
+        },
+        {
+            "nameP": "Natalia Patiño",
+            "mail": "npatino@uao.edu.co",
+            "dirP": "calle50#45-67",
+            "codeE": "21495",
+            "nameCarrera": "Ingenieria Multimedia"
+        },
+        {
+            "nameP": "Julián Soto",
+            "mail": "jsoto@uao.edu.co",
+            "dirP": "carrera16#56-78",
+            "codeE": "21496",
+            "nameCarrera": "Ingenieria de Sistemas"
+        },
+        {
+            "nameP": "Mónica Blanco",
+            "mail": "mblanco@uao.edu.co",
+            "dirP": "avenida9#67-89",
+            "codeE": "21497",
+            "nameCarrera": "Administración de Empresas"
+        }
+    ]
+}

@@ -1,42 +1,53 @@
+using Package2D;
+using PackagePersona;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MouseOverPanel : MonoBehaviour
 {
-    public RectTransform PanelPuntos2D;
-    public UsarPunto2D UsarPunto2D;
-    public Utilidades utilidades;
-    private List<Vector2> listaPuntos = new List<Vector2>();
-    private Vector2 ultimaCoordenada;
+    public RectTransform panelNaranja; // Asigna aquí tu panel rojo (RectTransform)
+    List<Puntos2D> puntos = new List<Puntos2D>();
+
+    public void Start()
+    {
+
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Solo cuando haces clic izquierdo
+        Vector2 localMousePos;
+
+        // Verifica si el mouse está sobre el panel
+        if (RectTransformUtility.RectangleContainsScreenPoint(panelNaranja, Input.mousePosition))
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(PanelPuntos2D, Input.mousePosition))
-            {
-                Vector2 localMousePos;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    PanelPuntos2D,
-                    Input.mousePosition,
-                    null, // o Camera.main si tu Canvas está en Screen Space - Camera
-                    out localMousePos
-                );
+            // Convierte a coordenadas locales del panel
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                panelNaranja,
+                Input.mousePosition,
+                null, // o Camera.main si el Canvas está en Screen Space - Camera
+                out localMousePos
+            );
+
+            Puntos2D punto2D = new Puntos2D(localMousePos.x, localMousePos.y);
+            puntos.Add(punto2D);
 
 
-                UsarPunto2D.ultimaCoordenada = localMousePos;
 
-
-                Debug.Log("Clic dentro del panel naranja. Pos local: " + localMousePos);
-            }
+            //Debug.Log(" Mouse sobre panel naranja. Pos local: " + localMousePos.x);
+            //Debug.Log(" Mouse sobre panel naranja. Pos local: " + localMousePos);
         }
+
+
     }
-    public void AddPuntoList()
+    public void saveDataPuntos()
     {
-
-        listaPuntos.Add(ultimaCoordenada);
-        Utilidades.GuardarPuntosJson(listaPuntos);
-
-
+        Utilidades.SaveDataPuntos(puntos);
     }
+
+
+
 }
 

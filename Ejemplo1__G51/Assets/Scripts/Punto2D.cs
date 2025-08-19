@@ -11,8 +11,10 @@ namespace Package2D
     public class Puntos2D 
     {
 
-        [SerializeField] private double X;
-        [SerializeField] private double Y;
+        [SerializeField] 
+        private float X;
+        [SerializeField] 
+        private float Y;
 
 
         public Puntos2D()
@@ -20,14 +22,14 @@ namespace Package2D
 
         }
 
-        public Puntos2D(double x, double y)
+        public Puntos2D(float x, float y)
         {
-            X = x;
-            Y = y;
+            this.X = x;
+            this.Y = y;
         }
 
-        public double X1 { get => X; set => X = value; }
-        public double Y1 { get => Y; set => Y = value; }
+        public float X1 { get => X; set => X = value; }
+        public float Y1 { get => Y; set => Y = value; }
     }
 }
 

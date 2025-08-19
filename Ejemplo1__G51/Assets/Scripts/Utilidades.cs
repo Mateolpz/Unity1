@@ -1,54 +1,124 @@
 using Package2D;
 using PackagePersona;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.ShaderKeywordFilter;
+using System.Runtime.Serialization;
 using UnityEngine;
-using UnityEngine.Analytics;
-using UnityEngine.Purchasing.MiniJSON;
-
-
 public class Utilidades : MonoBehaviour
 {
-    public static bool GuardarEstudianteJson(List<Estudiante> listaEstudiante)
+    public static bool SaveDataStudent(List<Estudiante> listaE)
     {
-        bool resultado= false;
-        string ruta = Path.Combine(Application.streamingAssetsPath, "estudiantes.json");
-        string JsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaEstudiante }, true);
-        File.WriteAllText(ruta, JsonString);
-        Debug.Log("Lista:" + JsonString);
-        return resultado;
+        try
+        {
+            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaE }, true);
+            string folderPath = Application.streamingAssetsPath;
+
+            // Crear la carpeta si no existe
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string filePath = Path.Combine(folderPath, "datosEstudiante.json");
+
+            // Escribir el archivo
+            File.WriteAllText(filePath, jsonString);
+
+            Debug.Log(" Archivo JSON guardado correctamente en: " + filePath);
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error al guardar archivo JSON: " + ex.Message);
+            return false;
+        }
+
     }
 
-    public static bool GuardarPuntosJson(List<Vector2> listaPuntos)
+    public static bool SaveDataPuntos(List<Puntos2D> listaP)
     {
-        bool resultado= false;
-        string ruta = Path.Combine(Application.streamingAssetsPath, "puntos2D.json");
-        string JsonString = JsonUtility.ToJson(new Puntos2DListWrapper { puntos = listaPuntos }, true);
-        File.WriteAllText(ruta, JsonString);
-        Debug.Log("Lista Puntos:" + JsonString);
-        return resultado;
+        try
+        {
+            string jsonString = JsonUtility.ToJson(new PuntosListWrapper { puntos = listaP }, true);
+            string folderPath = Application.streamingAssetsPath;
 
+            // Crear la carpeta si no existe
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string filePath = Path.Combine(folderPath, "datosPuntos.json");
+
+            // Escribir el archivo
+            File.WriteAllText(filePath, jsonString);
+
+            Debug.Log(" Archivo JSON guardado correctamente en: " + filePath);
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error al guardar archivo JSON: " + ex.Message);
+            return false;
+        }
     }
 
+    public static bool SaveSeparatedStudents(List<Estudiante> listaE)
+    {
+        try
+        {
+            List<Estudiante> listaIng = new List<Estudiante>();
+            List<Estudiante> listaOtros = new List<Estudiante>();
+
+            foreach (Estudiante e in listaE)
+            {
+                if (e.Carrera.ToLower().Contains("ingeniería"))
+                    listaIng.Add(e);
+                else
+                    listaOtros.Add(e);
+            }
+
+            string folderPath = Application.streamingAssetsPath;
+
+            // Crear carpeta si no existe
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            // Rutas de archivos
+            string rutaIng = Path.Combine(folderPath, "ingenieria.json");
+            string rutaOtros = Path.Combine(folderPath, "otros.json");
+
+            // Guardar como JSON
+            File.WriteAllText(rutaIng, JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaIng }, true));
+            File.WriteAllText(rutaOtros, JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaOtros }, true));
+
+            Debug.Log("Listas separadas guardadas en JSON");
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error al guardar listas separadas: " + ex.Message);
+            return false;
+        }
+    }
 }
-    [System.Serializable]
-    public class EstudianteListWrapper
-    {
+
+[Serializable]
+public class EstudianteListWrapper
+{
 
     public List<Estudiante> estudiantes;
 
-    }
+}
 
-    [System.Serializable]
-    public class Puntos2DListWrapper
-    {
+[Serializable]
+public class PuntosListWrapper
+{
 
-    public List<Vector2> puntos;
+    public List<Puntos2D> puntos;
 
-    }
+}
 
 
 

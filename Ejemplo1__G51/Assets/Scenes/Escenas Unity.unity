@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 47078989}
   - component: {fileID: 47078991}
   - component: {fileID: 47078990}
-  - component: {fileID: 47078992}
   m_Layer: 5
   m_Name: PanelPuntos2D
   m_TagString: Untagged
@@ -335,21 +334,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47078988}
   m_CullTransparentMesh: 1
---- !u!114 &47078992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47078988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f091bef4bf252e347b604559d0a2df59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PanelPuntos2D: {fileID: 47078989}
-  UsarPunto2D: {fileID: 0}
-  utilidades: {fileID: 0}
 --- !u!1 &86128827
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &86128828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1080,11 +1064,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eed39e820fdb6b418eceb8fcbc607f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codeStudent: {fileID: 1428248920}
-  carreraStudent: {fileID: 1754940834}
   nameStudent: {fileID: 1060889989}
   mailStudent: {fileID: 1962403484}
   dirStudent: {fileID: 447905762}
+  CodeStudent: {fileID: 0}
+  carreraStudent: {fileID: 1754940834}
 --- !u!4 &318754904
 Transform:
   m_ObjectHideFlags: 0
@@ -1920,7 +1904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &631904158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2604,8 +2588,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1426684017}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218063108
@@ -3208,7 +3191,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1807875454}
         m_TargetAssemblyTypeName: MouseOverPanel, Assembly-CSharp
-        m_MethodName: AddPuntoList
+        m_MethodName: saveDataPuntos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3256,53 +3239,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326147796}
   m_CullTransparentMesh: 1
---- !u!1 &1426684016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1426684017}
-  - component: {fileID: 1426684018}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1426684017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426684016}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1123349326}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1426684018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426684016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f091bef4bf252e347b604559d0a2df59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PanelPuntos2D: {fileID: 0}
-  UsarPunto2D: {fileID: 0}
-  utilidades: {fileID: 0}
 --- !u!1 &1428248918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4562,9 +4498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f091bef4bf252e347b604559d0a2df59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelPuntos2D: {fileID: 47078989}
-  UsarPunto2D: {fileID: 0}
-  utilidades: {fileID: 0}
+  panelNaranja: {fileID: 47078989}
 --- !u!1 &1828908322
 GameObject:
   m_ObjectHideFlags: 0
