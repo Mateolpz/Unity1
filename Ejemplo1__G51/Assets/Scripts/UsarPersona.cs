@@ -78,6 +78,7 @@ public class UsarPersona : MonoBehaviour
 
         listaE.Add(e1);
 
+
     }
 
     public void ShowStudentList()
