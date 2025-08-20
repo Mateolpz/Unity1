@@ -1067,7 +1067,7 @@ MonoBehaviour:
   nameStudent: {fileID: 1060889989}
   mailStudent: {fileID: 1962403484}
   dirStudent: {fileID: 447905762}
-  CodeStudent: {fileID: 0}
+  CodeStudent: {fileID: 1428248920}
   carreraStudent: {fileID: 1754940834}
 --- !u!4 &318754904
 Transform:
