@@ -1,0 +1,71 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class SimpleAudio : MonoBehaviour
+{
+
+    [Header("Referencias")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Button nextAudio;
+
+    [SerializeField] private List<AudioClip> listClips = new List<AudioClip>();
+
+    [SerializeField] bool loopPlayList = true;
+
+    private int index = -1;
+
+    private void Awake()
+    {
+        if (nextAudio != null)
+        {
+            nextAudio.onClick.AddListener(PlayNext);
+        }
+            
+    }
+
+    private void OnDestroy()
+    {
+        if (nextAudio != null)
+        {
+            nextAudio.onClick.RemoveListener(PlayNext);
+        }
+    }
+
+    private void PlayNext()
+    {
+        if (listClips == null || listClips.Count == 0 || audioSource == null)
+            return;
+
+        index++;
+
+        if (index >= listClips.Count)
+        {
+            if (loopPlayList)
+                index = 0;
+            else
+            {
+                index = listClips.Count - 1;
+               
+            }
+        }
+
+        audioSource.Stop(); 
+        audioSource.clip = listClips[index];
+        audioSource.Play();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
