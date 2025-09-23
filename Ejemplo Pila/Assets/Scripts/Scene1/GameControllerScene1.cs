@@ -7,8 +7,8 @@ public class GameControllerScene1 : MonoBehaviour
 {
 
     public Timer tiempoEscena;
-    public TMPro.TextMeshProUGUI textApple;
-    public TMPro.TextMeshProUGUI textBanana;
+    public TMP_Text textApple;
+    public TMP_Text textBanana;
 
 
     // Start is called before the first frame update

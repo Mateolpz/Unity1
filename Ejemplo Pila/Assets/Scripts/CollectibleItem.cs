@@ -9,6 +9,7 @@ public class CollectibleItem : MonoBehaviour
     //[Header("Opciones de items")]
     public ItemType type=ItemType.Apple;
     public int itemValue=1;
+    public AudioClip sound;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,9 @@ public class CollectibleItem : MonoBehaviour
 
         if (!collision.CompareTag("Player")) return;
 
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+       
+
         switch (type)
         {
             case ItemType.Apple:
@@ -35,8 +39,11 @@ public class CollectibleItem : MonoBehaviour
             case ItemType.Banana:
                 GameManager.Instance.TotalBanana(itemValue);
                 break;
+
         }
 
        Destroy(gameObject);
     }
 }
+
+

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float horizontal;
     public float vertical; //No se usa
     public float speed = 5f;
-    public float jumpForce = 3f;
+    public float jumpForce = 5f;
     
     private bool isGrounded = false;
 
@@ -31,11 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(horizontal)); //Animacion de correr
 
-        if (Input.GetButtonDown("Jump") && !isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            _Rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            animator.SetBool("isJumping", true);
-            isGrounded = true;
+            _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, jumpForce);
+            animator.SetBool("isGrounded", false);
+            isGrounded = false;
         }
 
 
@@ -54,9 +54,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            animator.SetBool("isJumping", false);
+            animator.SetBool("isGrounded", true);
         }
     }
 
-    
+  
 }
