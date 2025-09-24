@@ -10,6 +10,8 @@ public class Flag : MonoBehaviour
         if (other.CompareTag("Player")) // Verifica si fue el jugador
         {
             SceneManager.LoadScene(sceneToLoad);
+
+
         }
     }
 }

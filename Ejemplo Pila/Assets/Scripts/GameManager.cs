@@ -11,10 +11,9 @@ public class GameManager : MonoBehaviour
 
     private float globalTime;
 
-    private int scoreApple = 0;
-    private int scoreBanana = 0;
-
-
+    public int scoreApple = 0;
+    public int scoreBanana = 0;
+ 
 
     private void Awake()
     {
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        globalTime += Time.deltaTime;
     }
 
     public void TotalTime(float timeScene)

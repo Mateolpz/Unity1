@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float horizontal;
     public float vertical; //No se usa
-    public float speed = 5f;
+    public float speed = 2f;
     public float jumpForce = 5f;
     
     private bool isGrounded = false;
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(horizontal)); //Animacion de correr
 
+        
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, jumpForce);
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _Rigidbody2D.velocity = new Vector2(horizontal, _Rigidbody2D.velocity.y);
+        _Rigidbody2D.velocity = new Vector2(horizontal * speed, _Rigidbody2D.velocity.y);
     }
 
 
